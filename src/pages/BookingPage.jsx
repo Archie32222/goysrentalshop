@@ -29,7 +29,7 @@ const Booking = () => {
         "✅ Bluetooth Audio",
         "✅ Fuel Efficient",
       ],
-      image: car1, // Using car1 as placeholder - you may want to import more images
+      image: car2, 
     },
     {
       id: 3,
@@ -41,7 +41,7 @@ const Booking = () => {
         "✅ 4x4 Available",
         "✅ Spacious Interior",
       ],
-      image: car1,
+      image: car3,
     },
     {
       id: 4,
@@ -53,7 +53,7 @@ const Booking = () => {
         "✅ High Ground Clearance",
         "✅ Heavy Duty",
       ],
-      image: car1,
+      image: car4,
     },
     {
       id: 5,
@@ -65,7 +65,7 @@ const Booking = () => {
         "✅ Compact Size",
         "✅ Easy to Park",
       ],
-      image: car1,
+      image: car5,
     },
     {
       id: 6,
@@ -77,7 +77,7 @@ const Booking = () => {
         "✅ Spacious Cargo Area",
         "✅ Ideal for Groups",
       ],
-      image: car1,
+      image: car6,
     },
   ];
 
