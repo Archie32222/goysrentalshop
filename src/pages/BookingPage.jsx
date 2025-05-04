@@ -17,7 +17,7 @@ const Booking = () => {
         "✅ Automatic Transmission",
         "✅ Air Conditioning",
       ],
-      image: car2,
+      image: car1,
     },
     {
       id: 2,
