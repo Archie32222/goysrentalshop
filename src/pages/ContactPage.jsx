@@ -74,7 +74,7 @@ const ContactPage = () => {
                 </svg>
                 <div>
                   <h3 className="font-semibold">Address</h3>
-                  <p>123 Rental Street, Cebu City, Philippines</p>
+                  <p>168 San Pascual St, Quezon City, Philippines, 1121</p>
                 </div>
               </div>
 
@@ -95,7 +95,7 @@ const ContactPage = () => {
                 </svg>
                 <div>
                   <h3 className="font-semibold">Phone</h3>
-                  <p>+63 912 345 6789</p>
+                  <p>+63 967 228 5705</p>
                 </div>
               </div>
 
@@ -116,7 +116,7 @@ const ContactPage = () => {
                 </svg>
                 <div>
                   <h3 className="font-semibold">Email</h3>
-                  <p>info@goyscarrental.com</p>
+                  <p>goyscarrental@gmail.com</p>
                 </div>
               </div>
 
