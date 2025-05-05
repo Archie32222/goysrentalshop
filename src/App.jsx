@@ -7,6 +7,7 @@ import InformationPage from "./pages/informationPage";
 import LoginPage from "./pages/LoginPage";
 import ContactPage from "./pages/ContactPage";
 import AdminPage from "./pages/AdminPage";
+import AdminLoginPage from "./pages/AdminLoginPage";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin-login" element={<AdminLoginPage />} />
         </Routes>
       </Router>
     </AuthProvider>

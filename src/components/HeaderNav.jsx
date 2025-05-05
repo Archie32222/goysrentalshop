@@ -14,6 +14,7 @@ export default function HeaderNav() {
         <Link to="/information">Information</Link>
         <Link to="/contact">Contact</Link>
         <Link to="/Login">Login/Register</Link>
+        <Link to="/admin-login">Admin Login</Link>
       </nav>
     </header>
   );
