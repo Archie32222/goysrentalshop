@@ -5,30 +5,50 @@ const supabaseKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJneWF2bmhjdXhscWh4dHdrYnNtIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDUwNTQwNTcsImV4cCI6MjA2MDYzMDA1N30.dU8mulVSonF_6ptxQSR-7mfx8FvQ2EgPiGH04WAhfyo";
 export const supabase = createClient(supabaseUrl, supabaseKey);
 
-// Fetch data from 'todos' table testing
-export async function fetchTodos() {
-  const { data, error } = await supabase.from("todos").select("*");
-  console.log(data);
-  if (error) {
-    console.error("Error:", error);
-  } else {
-    console.log("Todos:", data);
-  }
-}
-export const registerUser = async (email, password) => {
+export const registerUser = async (email, password, full_name, contact) => {
   try {
-    const { data, error } = await supabase.auth.signUp({
+    // First, create the user in the auth service
+    const { data: authData, error: authError } = await supabase.auth.signUp({
       email,
       password,
+      options: {
+        data: {
+          full_name, // Store name in the auth metadata
+        },
+      },
     });
 
-    if (error) throw error;
+    if (authError) throw authError;
 
-    return { user: data.user, session: data.session };
+    // If authentication successful, create/update the profile
+    if (authData.user) {
+      // Insert profile data
+      const { error: profileError } = await supabase.from("profiles").upsert(
+        {
+          id: authData.user.id,
+          email: email,
+          full_name: full_name,
+          contact: contact,
+          created_at: new Date().toISOString(),
+        },
+        {
+          onConflict: "id", // In case the profile already exists
+        }
+      );
+
+      if (profileError) {
+        console.error("Error creating profile:", profileError);
+        // Note: We don't throw here to avoid preventing account creation if profile update fails
+        // In a production app, you might want more sophisticated error handling
+      }
+    }
+
+    return { user: authData.user, session: authData.session };
   } catch (err) {
     return { error: err.message };
   }
 };
+
 export const loginUser = async (email, password) => {
   try {
     const { data, error } = await supabase.auth.signInWithPassword({

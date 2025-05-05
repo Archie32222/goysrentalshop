@@ -5,9 +5,10 @@ import LandingPage from "./pages/LandingPage";
 import Booking from "./pages/BookingPage";
 import InformationPage from "./pages/informationPage";
 import LoginPage from "./pages/LoginPage";
+import AdminLoginPage from "./pages/AdminLoginPage";
+import AccountVerifyPage from "./pages/AccountVerifyPage";
 import ContactPage from "./pages/ContactPage";
 import AdminPage from "./pages/AdminPage";
-import AdminLoginPage from "./pages/AdminLoginPage";
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/admin" element={<AdminPage />} />
           <Route path="/admin-login" element={<AdminLoginPage />} />
+          <Route path="/verify" element={<AccountVerifyPage />} />
         </Routes>
       </Router>
     </AuthProvider>
